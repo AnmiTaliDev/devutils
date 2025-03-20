@@ -35,6 +35,8 @@
 *.i*86
 *.x86_64
 *.hex
+*.elf
+*.bin
 
 # Debug files
 *.dSYM/
@@ -50,3 +52,17 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+build/
+!build/.gitignore
+Makefile
+config
+*.config
+*.config.old
+*.autoconf
+*.autoconf.h
+*.defconfig
+*.savedconfig
+cloc
+countfile
+.buildtime

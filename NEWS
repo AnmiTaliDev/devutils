@@ -1,0 +1,10 @@
+Dev utilies 1.0.0 (2025-03-20)
+
+Initial release:
+* countfile - Enhanced file content counter
+* cloc - Source code line counter
+
+Features:
+* POSIX-compliant implementation
+* Optimized for performance
+* Clear and consistent output format
