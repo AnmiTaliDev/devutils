@@ -1,0 +1,78 @@
+.TH CLOC 1 "2025-08-09" "devutils 1.0.0" "User Commands"
+.SH NAME
+cloc \- count lines of code with language detection
+.SH SYNOPSIS
+.B cloc
+[\fIDIRECTORY\fR|\fIFILE\fR...]
+.SH DESCRIPTION
+.B cloc
+counts lines of code in source files, distinguishing between code lines, comment lines, and blank lines. It automatically detects the programming language based on file extensions and content analysis.
+.PP
+Supported languages include C, C++, Python, Java, Go, Rust, and JavaScript.
+.SH OPTIONS
+None. The utility automatically processes all supported files in the given directories or analyzes specific files.
+.SH EXAMPLES
+Analyze all source files in a directory:
+.RS
+.B cloc src/
+.RE
+.PP
+Analyze specific files:
+.RS
+.B cloc main.c utils.h
+.RE
+.PP
+Analyze current directory:
+.RS
+.B cloc .
+.RE
+.SH OUTPUT FORMAT
+The output shows statistics for each language:
+.RS
+Language     Files     Code  Comments    Blank    Total
+------------------------------------------------------
+C                3      450       123       67      640
+C++              2      234        45       23      302
+------------------------------------------------------
+Total            5      684       168       90      942
+.RE
+.SH LANGUAGE DETECTION
+.B cloc
+uses file extensions and content analysis to detect programming languages:
+.TP
+.B C
+.c, .h files (content-based C/C++ detection for .h files)
+.TP
+.B C++
+.cpp, .hpp, .cc, .hxx, .cxx files
+.TP
+.B Python
+.py, .pyw files
+.TP
+.B Java
+.java files
+.TP
+.B Go
+.go files
+.TP
+.B Rust
+.rs files
+.TP
+.B JavaScript
+.js, .jsx, .mjs files
+.SH EXIT STATUS
+.TP
+0
+Success
+.TP
+1
+Error occurred
+.SH SEE ALSO
+.BR countfile (1),
+.BR find (1),
+.BR wc (1)
+.SH COPYRIGHT
+Copyright \(co 2025 AnmiTaliDev.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.

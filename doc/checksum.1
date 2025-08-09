@@ -1,0 +1,84 @@
+.TH CHECKSUM 1 "2025-08-09" "devutils 1.0.0" "User Commands"
+.SH NAME
+checksum \- calculate checksums for files
+.SH SYNOPSIS
+.B checksum
+[\fIOPTIONS\fR] [\fIFILE\fR...]
+.SH DESCRIPTION
+.B checksum
+calculates checksums for files using various algorithms.
+If no \fIFILE\fR is specified, read standard input.
+.SH OPTIONS
+.TP
+.B \-c, \-\-crc32
+Calculate CRC32 checksum (default).
+.TP
+.B \-s, \-\-sum
+Calculate BSD sum checksum.
+.TP
+.B \-a, \-\-adler32
+Calculate Adler-32 checksum.
+.TP
+.BI \-v " FILE" ", \-\-verify " FILE
+Verify checksums from \fIFILE\fR (not yet implemented).
+.TP
+.B \-q, \-\-quiet
+Don't print filenames, only checksum values.
+.TP
+.B \-h, \-\-help
+Display help message and exit.
+.TP
+.B \-\-version
+Output version information and exit.
+.SH ALGORITHMS
+.TP
+.B CRC32
+32-bit Cyclic Redundancy Check. Standard CRC-32 used in ZIP files, PNG, etc.
+.TP
+.B Adler-32
+32-bit checksum algorithm used in zlib. Faster than CRC32 but less reliable.
+.TP
+.B BSD sum
+16-bit checksum used by traditional BSD sum command.
+.SH EXAMPLES
+Calculate CRC32 for files:
+.RS
+.B checksum file1.txt file2.txt
+.RE
+.PP
+Calculate Adler-32 checksums:
+.RS
+.B checksum \-a *.bin
+.RE
+.PP
+Calculate checksum from standard input:
+.RS
+.B echo "hello world" | checksum \-q
+.RE
+.SH OUTPUT FORMAT
+Default format shows checksum and filename:
+.RS
+a1b2c3d4  file.txt
+.RE
+.PP
+With \-q option, only the checksum is shown:
+.RS
+a1b2c3d4
+.RE
+.SH EXIT STATUS
+.TP
+0
+Success
+.TP
+1
+Error occurred
+.SH SEE ALSO
+.BR md5sum (1),
+.BR sha256sum (1),
+.BR cksum (1),
+.BR sum (1)
+.SH COPYRIGHT
+Copyright \(co 2025 AnmiTaliDev.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.

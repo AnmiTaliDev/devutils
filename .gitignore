@@ -66,3 +66,4 @@ config
 cloc
 countfile
 .buildtime
+builddir

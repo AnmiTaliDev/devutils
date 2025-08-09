@@ -1,0 +1,18 @@
+# Build options for devutils
+
+option('enable_debug', type: 'boolean', value: false,
+       description: 'Enable debug build')
+
+option('sanitizer', type: 'combo',
+       choices: ['none', 'address', 'thread', 'memory', 'undefined'],
+       value: 'none',
+       description: 'Enable sanitizer')
+
+option('lib_only', type: 'boolean', value: false,
+       description: 'Build as library only (no executables)')
+
+option('static', type: 'boolean', value: false,
+       description: 'Build static executables')
+
+option('tests', type: 'boolean', value: true,
+       description: 'Build and run tests')

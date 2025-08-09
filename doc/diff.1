@@ -1,0 +1,84 @@
+.TH DIFF 1 "2025-08-09" "devutils 1.0.0" "User Commands"
+.SH NAME
+diff \- compare files line by line
+.SH SYNOPSIS
+.B diff
+[\fIOPTIONS\fR] \fIFILE1\fR \fIFILE2\fR
+.SH DESCRIPTION
+.B diff
+compares two files line by line and reports the differences.
+This is a simplified version of the standard diff utility.
+.SH OPTIONS
+.TP
+.B \-i, \-\-ignore-case
+Ignore case differences when comparing lines.
+.TP
+.B \-w, \-\-ignore-all-space
+Ignore all white space differences.
+.TP
+.B \-q, \-\-brief
+Report only whether files differ, not the details of the differences.
+.TP
+.B \-h, \-\-help
+Display help message and exit.
+.TP
+.B \-\-version
+Output version information and exit.
+.SH OUTPUT FORMAT
+The output uses ed-style difference notation:
+.TP
+.B NdN
+Delete line N from first file.
+.TP
+.B NaN
+Add line N to first file.
+.TP
+.B NcN
+Change line N in first file.
+.PP
+Lines from the first file are prefixed with "<", lines from the second file with ">".
+Changes are separated by "---".
+.SH EXAMPLES
+Compare two files:
+.RS
+.B diff file1.txt file2.txt
+.RE
+.PP
+Compare ignoring case:
+.RS
+.B diff \-i case_sensitive1.txt case_sensitive2.txt
+.RE
+.PP
+Brief comparison (only report if different):
+.RS
+.B diff \-q old_version.c new_version.c
+.RE
+.SH EXIT STATUS
+.TP
+0
+Files are identical
+.TP
+1
+Files differ
+.TP
+2
+Error occurred (file not found, etc.)
+.SH LIMITATIONS
+This is a simplified diff implementation that:
+.IP \(bu 2
+Does not support unified diff format
+.IP \(bu 2
+Does not support context diff format
+.IP \(bu 2
+Does not support recursive directory comparison
+.IP \(bu 2
+Uses a simple line-by-line algorithm (not optimal for large changes)
+.SH SEE ALSO
+.BR diff (1),
+.BR cmp (1),
+.BR comm (1)
+.SH COPYRIGHT
+Copyright \(co 2025 AnmiTaliDev.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.

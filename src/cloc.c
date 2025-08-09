@@ -5,8 +5,18 @@
  * Created: 2025-03-20 08:19:41 UTC
  * Author: AnmiTaliDev
  *
- * This file is part of dev-utils and is released under the MIT License.
- * See the LICENSE file for more details.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
  #define _POSIX_C_SOURCE 200809L
@@ -194,7 +204,7 @@
      }
  }
  
- static int process_file(const char *path, file_stats_t *stats) {
+ int process_file(const char *path, file_stats_t *stats) {
      int fd, result = CLOC_SUCCESS;
      struct stat st;
      char *addr;
@@ -372,6 +382,18 @@
  
      return 0;
  }
+
+int get_language_stats(lang_stats_t *stats, size_t max_langs) {
+    if (!stats || max_langs == 0) {
+        return -1;
+    }
+    
+    size_t count = (global_stats_count < max_langs) ? global_stats_count : max_langs;
+    memcpy(stats, global_stats, count * sizeof(lang_stats_t));
+    
+    return (int)count;
+}
+
  
  int get_supported_languages(lang_syntax_t *syntax, size_t max_langs) {
      size_t count = 0;

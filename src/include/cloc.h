@@ -4,8 +4,18 @@
  * Copyright (c) 2025 AnmiTaliDev
  * Created: 2025-03-20 07:40:49 UTC
  *
- * This file is part of dev-utils and is released under the MIT License.
- * See the LICENSE file for more details.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
  #ifndef CLOC_H
@@ -95,7 +105,7 @@
   * @param stats Pointer to stats structure to fill
   * @return CLOC_SUCCESS on success, error code otherwise
   */
- int count_file(const char *path, file_stats_t *stats);
+ int process_file(const char *path, file_stats_t *stats);
  
  /*
   * Recursively process a directory

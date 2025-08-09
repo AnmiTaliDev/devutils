@@ -1,0 +1,49 @@
+.TH COUNTFILE 1 "2025-08-09" "devutils 1.0.0" "User Commands"
+.SH NAME
+countfile \- count lines, words, characters, and bytes in files
+.SH SYNOPSIS
+.B countfile
+[\fIFILE\fR...]
+.SH DESCRIPTION
+.B countfile
+counts the number of lines, words, characters, and bytes in each \fIFILE\fR.
+If no \fIFILE\fR is specified, or if \fIFILE\fR is \fB\-\fR, read standard input.
+.PP
+The output format is:
+.RS
+lines  words  chars  bytes  filename
+.RE
+.PP
+If multiple files are specified, a total count is displayed at the end.
+.SH OPTIONS
+None. This utility follows the traditional UNIX philosophy of doing one thing well.
+.SH EXAMPLES
+Count lines in a single file:
+.RS
+.B countfile file.txt
+.RE
+.PP
+Count lines in multiple files:
+.RS
+.B countfile *.c
+.RE
+.PP
+Count lines from standard input:
+.RS
+.B cat file.txt | countfile
+.RE
+.SH EXIT STATUS
+.TP
+0
+Success
+.TP
+1
+Error occurred
+.SH SEE ALSO
+.BR wc (1),
+.BR cloc (1)
+.SH COPYRIGHT
+Copyright \(co 2025 AnmiTaliDev.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.

@@ -1,0 +1,83 @@
+.TH HEXDUMP 1 "2025-08-09" "devutils 1.0.0" "User Commands"
+.SH NAME
+hexdump \- display file contents in hexadecimal format
+.SH SYNOPSIS
+.B hexdump
+[\fIOPTIONS\fR] [\fIFILE\fR...]
+.SH DESCRIPTION
+.B hexdump
+displays the contents of files in various formats, primarily hexadecimal.
+If no \fIFILE\fR is specified, read standard input.
+.SH OPTIONS
+.TP
+.B \-C
+Canonical hex+ASCII display. Display offset, hex bytes, and ASCII representation (default).
+.TP
+.B \-x
+One-byte hex display.
+.TP
+.B \-d
+Two-byte decimal display.
+.TP
+.B \-o
+Two-byte octal display.
+.TP
+.BI \-s " OFFSET"
+Skip \fIOFFSET\fR bytes from the beginning of the input.
+.TP
+.BI \-n " LENGTH"
+Interpret only \fILENGTH\fR bytes of input.
+.TP
+.B \-v
+Display all input data (no duplicate line suppression).
+.TP
+.B \-h, \-\-help
+Display help message and exit.
+.TP
+.B \-\-version
+Output version information and exit.
+.SH EXAMPLES
+Display a file in canonical format:
+.RS
+.B hexdump \-C binary_file
+.RE
+.PP
+Skip first 1024 bytes and show next 256 bytes:
+.RS
+.B hexdump \-s 1024 \-n 256 large_file
+.RE
+.PP
+Display in one-byte hex format:
+.RS
+.B hexdump \-x data.bin
+.RE
+.SH OUTPUT FORMAT
+The canonical format (\-C) displays:
+.RS
+00000000  48 65 6c 6c 6f 2c 20 57  6f 72 6c 64 21 0a 00 00  |Hello, World!...|
+00000010  ...
+.RE
+.PP
+Where:
+.IP \(bu 2
+First column: byte offset in hexadecimal
+.IP \(bu 2
+Middle columns: hexadecimal byte values
+.IP \(bu 2
+Last column: ASCII representation (non-printable characters shown as '.')
+.SH EXIT STATUS
+.TP
+0
+Success
+.TP
+1
+Error occurred
+.SH SEE ALSO
+.BR od (1),
+.BR xxd (1),
+.BR strings (1)
+.SH COPYRIGHT
+Copyright \(co 2025 AnmiTaliDev.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
